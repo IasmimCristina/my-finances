@@ -1,24 +1,63 @@
-# README
+# My Finances
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Rails application for personal finance management.
 
-Things you may want to cover:
+## Stack
 
-* Ruby version
+- **Ruby**: 3.4.7
+- **Rails**: 8.1.2
+- **Database**: PostgreSQL 15
+- **CSS**: Tailwind CSS 4
+- **Background jobs**: Solid Queue
+- **Cache**: Solid Cache
 
-* System dependencies
+## Running with Docker
 
-* Configuration
+### Requirements
 
-* Database creation
+- Docker
+- Docker Compose
 
-* Database initialization
+### Starting the application
 
-* How to run the test suite
+```bash
+docker-compose up
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+The application will be available at: **http://localhost:3003**
 
-* Deployment instructions
+### Setting up the database (first time only)
 
-* ...
+```bash
+docker-compose run --rm web bin/rails db:create db:migrate db:seed
+```
+
+### Useful commands
+
+```bash
+# Start in background
+docker-compose up -d
+
+# View logs
+docker-compose logs -f web
+
+# Rails console
+docker-compose run --rm web bin/rails console
+
+# Run tests
+docker-compose run --rm web bundle exec rspec
+
+# Run migrations
+docker-compose run --rm web bin/rails db:migrate
+
+# Stop everything
+docker-compose down
+```
+
+## Services and ports
+
+| Service     | Host port | Container port |
+|-------------|-----------|----------------|
+| Web (Rails) | 3003      | 3000           |
+| PostgreSQL  | 5532      | 5432           |
+| Redis       | 6380      | 6379           |
