@@ -18,7 +18,9 @@ services:
       - redis_data:/data
 
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     command: ./bin/dev
     volumes:
       - .:/rails
