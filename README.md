@@ -8,8 +8,6 @@ A Rails application for personal finance management.
 - **Rails**: 8.1.2
 - **Database**: PostgreSQL 15
 - **CSS**: Tailwind CSS 4
-- **Background jobs**: Solid Queue
-- **Cache**: Solid Cache
 
 ## Running with Docker
 
