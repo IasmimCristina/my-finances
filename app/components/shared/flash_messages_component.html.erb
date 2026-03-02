@@ -1,0 +1,10 @@
+<div class="space-y-4">
+  <% @flash.each do |type, message| %>
+    <div class="<%= alert_class(type) %> p-4 rounded flex items-start gap-3" role="alert">
+      <span class="text-lg font-bold flex-shrink-0"><%= icon(type) %></span>
+      <div class="flex-1">
+        <p><%= message %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

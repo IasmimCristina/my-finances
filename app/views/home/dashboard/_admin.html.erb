@@ -1,0 +1,19 @@
+<section class="grid md:grid-cols-2 gap-6">
+  <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+    <h3 class="text-lg font-bold text-gray-900 mb-4">Gerenciamento</h3>
+    <div class="space-y-3">
+      <%= link_to "Usuários", users_path, class: "block p-3 bg-white border border-gray-300 rounded hover:bg-red-50 hover:border-red-300 transition" %>
+      <%= link_to "Categorias", "#", class: "block p-3 bg-white border border-gray-300 rounded hover:bg-red-50 hover:border-red-300 transition" %>
+      <%= link_to "Relatórios", "#", class: "block p-3 bg-white border border-gray-300 rounded hover:bg-red-50 hover:border-red-300 transition" %>
+    </div>
+  </div>
+
+  <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+    <h3 class="text-lg font-bold text-gray-900 mb-4">Estatísticas</h3>
+    <div class="space-y-2 text-gray-600">
+      <p>Total de usuários: <span class="font-bold text-gray-900">-</span></p>
+      <p>Total de transações: <span class="font-bold text-gray-900">-</span></p>
+      <p>Saldo total: <span class="font-bold text-gray-900">-</span></p>
+    </div>
+  </div>
+</section>

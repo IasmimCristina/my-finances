@@ -39,6 +39,15 @@ gem "thruster", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
 
+# Authentication gem: provides secure login, password hashing, session management
+gem "devise"
+
+# Authorization gem: Policy Objects pattern for fine-grained access control
+gem "pundit"
+
+# Reusable compenntes!
+gem "view_component"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
@@ -51,6 +60,20 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+end
+
+group :test do
+  # Testing framework for Rails models and controllers
+  gem "rspec-rails"
+
+  # Factory creation for tests (alternative to fixtures)
+  gem "factory_bot_rails"
+
+  # Provides matchers for model testing (validates_presence_of, etc)
+  gem "shoulda-matchers"
+
+  # Generate realistic fake data for tests
+  gem "faker"
 end
 
 group :development do
