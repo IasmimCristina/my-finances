@@ -1,0 +1,57 @@
+<div class="max-w-2xl mx-auto py-12">
+  <div class="flex items-center justify-between mb-8">
+    <h1 class="text-3xl font-bold text-gray-900"><%= @category.name %></h1>
+    <div class="flex gap-2">
+      <% if policy(@category).update? %>
+        <%= link_to "Editar", edit_category_path(@category), class: "px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition" %>
+      <% end %>
+      <% if policy(@category).destroy? %>
+        <%= link_to "Deletar", category_path(@category), method: :delete, data: { confirm: "Tem certeza?" }, class: "px-4 py-2 bg-red-100 text-red-900 rounded-lg hover:bg-red-200 transition border border-red-300" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="bg-white shadow rounded-lg p-6 space-y-6">
+    <!-- Tipo -->
+    <div>
+      <label class="text-sm font-medium text-gray-500">Tipo</label>
+      <div class="mt-2">
+        <% if @category.expense? %>
+          <span class="inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium bg-red-100 text-red-800">
+            Despesa
+          </span>
+        <% else %>
+          <span class="inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium bg-green-100 text-green-800">
+            Receita
+          </span>
+        <% end %>
+      </div>
+    </div>
+
+    <!-- Cor -->
+    <div>
+      <label class="text-sm font-medium text-gray-500">Cor</label>
+      <div class="mt-2 flex items-center gap-4">
+        <div class="w-16 h-16 rounded-lg border-4 border-gray-200" style="background-color: <%= @category.color %>"></div>
+        <code class="text-sm text-gray-600"><%= @category.color %></code>
+      </div>
+    </div>
+
+    <!-- Descrição -->
+    <% if @category.description.present? %>
+      <div>
+        <label class="text-sm font-medium text-gray-500">Descrição</label>
+        <p class="mt-2 text-gray-700"><%= @category.description %></p>
+      </div>
+    <% end %>
+
+    <!-- Criado em -->
+    <div class="text-xs text-gray-500 border-t pt-4">
+      Criado <%= time_ago_in_words(@category.created_at) %> atrás
+    </div>
+  </div>
+
+  <div class="mt-8">
+    <%= link_to "← Voltar", categories_path, class: "text-red-900 hover:underline font-medium" %>
+  </div>
+</div>

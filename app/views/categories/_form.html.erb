@@ -1,0 +1,60 @@
+<%= form_for(@category, local: true) do |f| %>
+  <% if @category.errors.any? %>
+    <div class="bg-red-50 border-l-4 border-red-600 p-4 rounded mb-6 text-sm text-red-800">
+      <p class="font-medium mb-2"><%= pluralize(@category.errors.count, "erro") %> encontrado:</p>
+      <ul class="list-disc list-inside">
+        <% @category.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="space-y-6">
+    <!-- Nome -->
+    <div>
+      <%= f.label :name, "Nome", class: "block text-sm font-medium text-gray-900 mb-2" %>
+      <%= f.text_field :name,
+          class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 focus:border-transparent",
+          placeholder: "ex: Alimentação" %>
+      <p class="text-xs text-gray-500 mt-1">Mínimo 2, máximo 50 caracteres</p>
+    </div>
+
+    <!-- desc -->
+    <div>
+      <%= f.label :description, "Descrição", class: "block text-sm font-medium text-gray-900 mb-2" %>
+      <%= f.text_area :description,
+          rows: 3,
+          class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 focus:border-transparent",
+          placeholder: "ex: Supermercado, restaurantes, delivery" %>
+    </div>
+
+
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        <%= f.label :color, "Cor", class: "block text-sm font-medium text-gray-900 mb-2" %>
+        <%= f.color_field :color,
+            class: "w-full h-10 border border-gray-300 rounded-lg cursor-pointer" %>
+        <p class="text-xs text-gray-500 mt-1">Clique para escolher</p>
+      </div>
+
+      <div>
+        <%= f.label :kind, "Tipo", class: "block text-sm font-medium text-gray-900 mb-2" %>
+        <%= f.select :kind,
+            options_for_select(
+              [["Despesa", "expense"], ["Receita", "income"]],
+              @category.kind
+            ),
+            {},
+            class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 focus:border-transparent" %>
+      </div>
+    </div>
+
+
+    <div class="flex gap-4 pt-4">
+      <%= f.submit @category.persisted? ? "Atualizar" : "Criar",
+          class: "px-6 py-2 bg-red-900 text-white rounded-lg hover:bg-red-800 transition font-medium" %>
+      <%= link_to "Cancelar", categories_path, class: "px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition" %>
+    </div>
+  </div>
+<% end %>
