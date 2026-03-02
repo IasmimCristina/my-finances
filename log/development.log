@@ -1,0 +1,46 @@
+Writing tailwind-f06edf1d.css
+Writing application-8b441ae0.css
+Writing application-bfcdf840.js
+Writing controllers/index-ee64e1f1.js
+Writing controllers/application-3affb389.js
+Writing controllers/hello_controller-708796bd.js
+Writing stimulus-autoloader-9d447422.js
+Writing stimulus-importmap-autoloader-64cc03e1.js
+Writing stimulus-loading-1fc53fe7.js
+Writing stimulus-d59b3b7f.js
+Writing stimulus.min-4b1e420e.js
+Writing stimulus.min-2395e199.js.map
+Writing turbo-736fb387.js
+Writing turbo.min-9fd88cd5.js
+Writing turbo.min-5eb167c2.js.map
+Writing action_cable-5212cfee.js
+Writing actioncable.esm-e0ec9819.js
+Writing actioncable-ac25813f.js
+Writing actiontext.esm-c376325e.js
+Writing actiontext-c9c6c481.js
+Writing trix-ceada207.js
+Writing trix-65afdb1d.css
+Writing activestorage.esm-81bb34bc.js
+Writing activestorage-f9e46063.js
+Writing rails-ujs.esm-e925103b.js
+Writing rails-ujs-20eaf715.js
+Started GET "/" for 172.18.0.1 at 2026-02-23 15:08:49 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (24.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='MyFinances'*/[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='MyFinances'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MyFinances'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/bundle/ruby/3.4.0/gems/railties-8.1.2/libtemplates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/ruby/3.4.0/gems/railties-8.1.2/libtemplates/rails/welcome/index.html.erb (Duration: 0.4ms | GC: 0.0ms)
+Completed 200 OK in 17ms (Views: 6.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 172.18.0.1 at 2026-03-02 00:22:33 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MyFinances'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/bundle/ruby/3.4.0/gems/railties-8.1.2/libtemplates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/ruby/3.4.0/gems/railties-8.1.2/libtemplates/rails/welcome/index.html.erb (Duration: 0.5ms | GC: 0.0ms)
+Completed 200 OK in 10ms (Views: 3.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+

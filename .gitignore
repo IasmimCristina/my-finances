@@ -1,0 +1,62 @@
+# Rails
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+/public/assets
+/public/packs
+/public/packs-test
+/public/uploads
+.byebug_history
+*.rbc
+*.sassc
+.sass-cache
+*.pid
+*.pid.lock
+*.sqlite3
+*.sqlite3-journal
+*.swp
+*.swo
+*.DS_Store
+*.bak
+*.old
+*.orig
+
+# Bundler
+/vendor/bundle
+.bundle/
+/vendor/cache
+
+# Node
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+npm-debug.log*
+/package-lock.json
+/yarn.lock
+
+# Docker
+docker-compose.override.yml
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# VSCode
+.vscode/
+
+# Others
+coverage/
+.byebug_history
+.idea/
+*.iml
+*.log
+config/master.key
+
+# Ignore assets builds (tailwind, etc)
+app/assets/builds/*
+!app/assets/builds/.keep
+
+# Kamal secrets (contém credenciais)
+.kamal/secrets
