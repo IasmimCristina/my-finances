@@ -53,6 +53,20 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 end
 
+group :test do
+  # Testing framework for Rails models and controllers
+  gem "rspec-rails"
+
+  # Factory creation for tests (alternative to fixtures)
+  gem "factory_bot_rails"
+
+  # Provides matchers for model testing (validates_presence_of, etc)
+  gem "shoulda-matchers"
+
+  # Generate realistic fake data for tests
+  gem "faker"
+end
+
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
