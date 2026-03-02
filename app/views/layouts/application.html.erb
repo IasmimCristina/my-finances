@@ -21,16 +21,16 @@
 
   <body class="bg-white text-gray-900">
     <div class="flex flex-col min-h-screen">
-      <%= render "shared/navbar" %>
+      <%= render NavbarComponent.new %>
 
       <main class="flex-1">
         <div class="container mx-auto px-4 py-8">
-          <%= render "shared/flash_messages" %>
+          <%= render Shared::FlashMessagesComponent.new(flash) %>
           <%= yield %>
         </div>
       </main>
 
-      <%= render "shared/footer" %>
+      <%= render Shared::FooterComponent.new %>
     </div>
   </body>
 </html>

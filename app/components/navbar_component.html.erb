@@ -1,0 +1,32 @@
+<nav class="bg-red-900 text-white shadow-lg">
+  <div class="container mx-auto px-4 py-4">
+    <div class="flex justify-between items-center">
+      <div class="flex items-center gap-8">
+        <%= link_to "My Finances", root_path, class: "text-xl font-bold hover:text-red-100 transition" %>
+
+        <% if signed_in? %>
+          <div class="hidden md:flex gap-6">
+            <% if admin? %>
+              <%= link_to "Users", users_path, class: "hover:text-red-100 transition" %>
+              <%= link_to "Categories", "#", class: "hover:text-red-100 transition" %>
+              <%= link_to "Reports", "#", class: "hover:text-red-100 transition" %>
+            <% elsif member? %>
+              <%= link_to "Transactions", "#", class: "hover:text-red-100 transition" %>
+              <%= link_to "Budget", "#", class: "hover:text-red-100 transition" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <% if signed_in? %>
+          <span class="text-sm text-red-100"><%= @user.name %></span>
+          <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "px-4 py-2 bg-red-800 hover:bg-red-700 rounded transition text-sm" %>
+        <% else %>
+          <%= link_to "Login", new_user_session_path, class: "px-4 py-2 bg-white text-red-900 hover:bg-red-100 rounded font-medium transition" %>
+          <%= link_to "Sign Up", new_user_registration_path, class: "px-4 py-2 border border-white hover:bg-red-800 rounded transition" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>

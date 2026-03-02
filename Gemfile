@@ -45,6 +45,9 @@ gem "devise"
 # Authorization gem: Policy Objects pattern for fine-grained access control
 gem "pundit"
 
+# Reusable compenntes!
+gem "view_component"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"

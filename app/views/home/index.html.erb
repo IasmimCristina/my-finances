@@ -1,0 +1,26 @@
+<section class="max-w-4xl mx-auto text-center py-20">
+  <h1 class="text-5xl font-bold text-gray-900 mb-4">
+    Gerencie suas finanças com simplicidade!
+  </h1>
+  <p class="text-xl text-gray-600 mb-8">
+    Controle suas transações, orçamentos e investimentos em um só lugar
+  </p>
+  <div class="flex gap-4 justify-center mb-12">
+    <%= link_to "Entrar", new_user_session_path, class: "px-6 py-3 bg-red-900 text-white rounded-lg hover:bg-red-800 transition font-medium" %>
+    <%= link_to "Criar conta", new_user_registration_path, class: "px-6 py-3 border-2 border-red-900 text-red-900 rounded-lg hover:bg-red-50 transition font-medium" %>
+  </div>
+  <div class="grid md:grid-cols-3 gap-8 mt-16">
+    <div class="p-6 bg-gray-50 rounded-lg">
+      <h3 class="text-lg font-bold text-gray-900 mb-2">Transações</h3>
+      <p class="text-gray-600">Registre receitas e despesas com facilidade</p>
+    </div>
+    <div class="p-6 bg-gray-50 rounded-lg">
+      <h3 class="text-lg font-bold text-gray-900 mb-2">Orçamento</h3>
+      <p class="text-gray-600">Planeje seus gastos mês a mês</p>
+    </div>
+    <div class="p-6 bg-gray-50 rounded-lg">
+      <h3 class="text-lg font-bold text-gray-900 mb-2">Relatórios</h3>
+      <p class="text-gray-600">Visualize seus dados com gráficos claros</p>
+    </div>
+  </div>
+</section>

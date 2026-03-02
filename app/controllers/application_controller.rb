@@ -14,6 +14,9 @@ class ApplicationController < ActionController::Base
   # Ensure user is logged in for all actions
   before_action :authenticate_user!
 
+
+  before_action :set_current_user
+
   # Raise error if user tries unauthorized action
   # (Will show error page instead of silent deny)
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -25,6 +28,10 @@ class ApplicationController < ActionController::Base
   helper_method :policy
 
   private
+
+  def set_current_user
+    Current.user = current_user
+  end
 
   def user_not_authorized
     redirect_to root_path, alert: "You are not authorized to perform this action."
