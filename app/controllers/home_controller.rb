@@ -9,9 +9,4 @@ class HomeController < ApplicationController
   def dashboard
     authorize Dashboard
   end
-
-  private
-
-  class Dashboard
-  end
 end
