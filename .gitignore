@@ -52,6 +52,7 @@ coverage/
 .idea/
 *.iml
 *.log
+config/master.key
 
 # Ignore assets builds (tailwind, etc)
 app/assets/builds/*
