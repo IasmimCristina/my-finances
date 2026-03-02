@@ -16,8 +16,7 @@ RUN apt-get update -qq && \
       nodejs \
       npm \
       pkg-config \
-      postgresql-client \
-      watchman && \
+      postgresql-client && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 RUN npm install -g tailwindcss

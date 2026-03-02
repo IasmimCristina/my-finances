@@ -1,0 +1,34 @@
+<div class="max-w-md mx-auto py-12">
+  <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Entrar</h2>
+
+  <%= render "users/shared/error_messages", resource: resource %>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), local: true) do |f| %>
+    <div class="space-y-4">
+      <div>
+        <%= f.label :email, "Email", class: "block text-sm font-medium text-gray-900 mb-2" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 focus:border-transparent" %>
+      </div>
+
+      <div>
+        <%= f.label :password, "Senha", class: "block text-sm font-medium text-gray-900 mb-2" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 focus:border-transparent" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="flex items-center">
+          <%= f.check_box :remember_me, {}, "true", "false" %>
+          <%= f.label :remember_me, "Lembrar de mim", class: "ml-2 text-sm text-gray-600" %>
+        </div>
+      <% end %>
+
+      <div class="pt-4">
+        <%= f.submit "Entrar", class: "w-full px-4 py-2 bg-red-900 text-white rounded-lg hover:bg-red-800 transition font-medium" %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="mt-6 text-center text-sm text-gray-600">
+    <%= render "users/shared/links" %>
+  </div>
+</div>

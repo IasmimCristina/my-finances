@@ -7,6 +7,6 @@
  * depending on specificity.
  *
  * Consider organizing styles into separate files for maintainability.
+ * HOW TO FIX TAILWIND BUG:
+ * SEPARATE: via stylesheet_link_tag "tailwind" in the layout.
  */
-@import "tailwindcss";
-/* @tailwind utilities; */
