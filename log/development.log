@@ -2618,3 +2618,165 @@ Processing by HomeController#dashboard as HTML
 Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
 
 
+Started GET "/dashboard" for 172.18.0.1 at 2026-03-02 12:22:56 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MyFinances'*/[0m
+Processing by HomeController#dashboard as HTML
+Completed 401 Unauthorized in 11ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/sign_in" for 172.18.0.1 at 2026-03-02 12:22:57 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 26.2ms | GC: 0.0ms)
+Completed 200 OK in 99ms (Views: 31.5ms | ActiveRecord: 45.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users/sign_in" for 172.18.0.1 at 2026-03-02 12:23:20 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"email" => "[FILTERED]", "password" => "[FILTERED]", "remember_me" => "1"}, "commit" => "Log in"}
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'admin@myfinances.local' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='MyFinances',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:33:in 'ApplicationController#set_current_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='create',application='MyFinances',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:33:in 'ApplicationController#set_current_user'
+  [1m[36mUser Update (2.7ms)[0m  [1m[33mUPDATE "users" SET "remember_created_at" = '2026-03-02 12:23:20.509556', "updated_at" = '2026-03-02 12:23:20.509962' WHERE "users"."id" = 1 /*action='create',application='MyFinances',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:33:in 'ApplicationController#set_current_user'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT /*action='create',application='MyFinances',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:33:in 'ApplicationController#set_current_user'
+Redirected to http://localhost:3003/dashboard
+Completed 303 See Other in 187ms (ActiveRecord: 7.0ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/dashboard" for 172.18.0.1 at 2026-03-02 12:23:20 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by HomeController#dashboard as TURBO_STREAM
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='dashboard',application='MyFinances',controller='home'*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering home/dashboard.html.erb within layouts/application
+  [1m[36mUser Count (7.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" /*action='dashboard',application='MyFinances',controller='home'*/[0m
+  ↳ app/views/home/dashboard/_admin.html.erb:15
+  [1m[36mCategory Count (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "categories" /*action='dashboard',application='MyFinances',controller='home'*/[0m
+  ↳ app/views/home/dashboard/_admin.html.erb:16
+  [1m[36mCategory Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "categories" WHERE "categories"."kind" = 0 /*action='dashboard',application='MyFinances',controller='home'*/[0m
+  ↳ app/views/home/dashboard/_admin.html.erb:17
+  [1m[36mCategory Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "categories" WHERE "categories"."kind" = 1 /*action='dashboard',application='MyFinances',controller='home'*/[0m
+  ↳ app/views/home/dashboard/_admin.html.erb:17
+  Rendered home/dashboard/_admin.html.erb (Duration: 18.0ms | GC: 0.0ms)
+  Rendered home/dashboard.html.erb within layouts/application (Duration: 19.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | GC: 0.0ms)
+Completed 200 OK in 27ms (Views: 12.8ms | ActiveRecord: 10.7ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/dashboard" for 172.18.0.1 at 2026-03-02 12:38:26 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by HomeController#dashboard as HTML
+Completed 401 Unauthorized in 22ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/sign_in" for 172.18.0.1 at 2026-03-02 12:38:26 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | GC: 0.0ms)
+Completed 200 OK in 62ms (Views: 7.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/sign_in" for 172.18.0.1 at 2026-03-02 12:42:53 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/sign_in" for 172.18.0.1 at 2026-03-02 12:47:12 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (expected file /rails/app/components/shared/navbar_component.rb to define constant Shared::NavbarComponent, but didn't)
+Caused by: Zeitwerk::NameError (expected file /rails/app/components/shared/navbar_component.rb to define constant Shared::NavbarComponent, but didn't)
+
+Information for: ActionView::Template::Error (expected file /rails/app/components/shared/navbar_component.rb to define constant Shared::NavbarComponent, but didn't):
+    23:   <body class="bg-white text-gray-900">
+    24:     <div class="flex flex-col min-h-screen">
+    25:       <%= render Shared::NavbarComponent.new %>
+    26: 
+    27:       <main class="flex-1">
+    28:         <div class="container mx-auto px-4 py-8">
+    29:           <%= render Shared::FlashMessagesComponent.new(flash) %>
+  
+app/views/layouts/application.html.erb:26
+
+Information for cause: Zeitwerk::NameError (expected file /rails/app/components/shared/navbar_component.rb to define constant Shared::NavbarComponent, but didn't):
+  
+app/views/layouts/application.html.erb:26
+Started GET "/favicon.ico" for 172.18.0.1 at 2026-03-02 12:47:13 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/users/sign_in" for 172.18.0.1 at 2026-03-02 12:48:20 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | GC: 0.2ms)
+Completed 200 OK in 11ms (Views: 7.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/users/sign_up" for 172.18.0.1 at 2026-03-02 12:55:43 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | GC: 0.0ms)
+Completed 200 OK in 12ms (Views: 8.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/sign_up" for 172.18.0.1 at 2026-03-02 12:55:45 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/sign_in" for 172.18.0.1 at 2026-03-02 12:55:51 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+

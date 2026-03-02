@@ -11,7 +11,7 @@ class Category < ApplicationRecord
   scope :incomes,  -> { where(kind: :income) }
   scope :ordered,  -> { order(:name) }
 
-  # Métodos de predicado (helpers)
+
   def expense?
     kind == "expense"
   end
