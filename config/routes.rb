@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :categories
+  resources :tags
 
   get "up" => "rails/health#show", as: :rails_health_check
 end

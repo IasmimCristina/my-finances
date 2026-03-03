@@ -1,7 +1,7 @@
 <div class="max-w-4xl mx-auto py-12">
   <div class="flex items-center justify-between mb-8">
     <h1 class="text-3xl font-bold text-gray-900">Categorias</h1>
-    <% if policy(Category).create? %>
+    <% if @can_create %>
       <%= link_to "Nova Categoria", new_category_path, class: "px-4 py-2 bg-red-900 text-white rounded-lg hover:bg-red-800 transition font-medium" %>
     <% end %>
   </div>
@@ -45,8 +45,12 @@
                 <%= truncate(category.description, length: 40) %>
               </td>
               <td class="px-6 py-4 text-sm space-x-2">
-                <%= link_to "Editar", edit_category_path(category), class: "text-red-900 hover:underline" if policy(category).update? %>
-                <%= link_to "Deletar", category_path(category), method: :delete, data: { confirm: "Tem certeza?" }, class: "text-red-600 hover:underline" if policy(category).destroy? %>
+                <% if policy(category).update? %>
+                  <%= link_to "Editar", edit_category_path(category), class: "text-red-900 hover:underline" %>
+                <% end %>
+                <% if policy(category).destroy? %>
+                  <%= link_to "Deletar", category_path(category), method: :delete, data: { confirm: "Tem certeza?" }, class: "text-red-600 hover:underline" %>
+                <% end %>
               </td>
             </tr>
           <% end %>
@@ -56,7 +60,7 @@
   <% else %>
     <div class="bg-gray-50 rounded-lg p-8 text-center">
       <p class="text-gray-600 mb-4">Nenhuma categoria criada ainda.</p>
-      <% if policy(Category).create? %>
+      <% if @can_create %>
         <%= link_to "Criar Primeira Categoria", new_category_path, class: "text-red-900 hover:underline font-medium" %>
       <% end %>
     </div>

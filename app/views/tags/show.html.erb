@@ -1,0 +1,82 @@
+<div class="max-w-4xl mx-auto py-12">
+  <div class="flex items-center justify-between mb-8">
+    <div class="flex items-center gap-4">
+      <div class="w-12 h-12 rounded-lg border-2 border-gray-300" style="background-color: <%= @tag.color %>"></div>
+      <h1 class="text-3xl font-bold text-gray-900"><%= @tag.name %></h1>
+    </div>
+    <div class="space-x-2">
+      <% if @can_edit %>
+        <%= link_to "Editar", edit_tag_path(@tag), class: "px-4 py-2 bg-red-900 text-white rounded-lg hover:bg-red-800 transition font-medium" %>
+      <% end %>
+      <% if @can_delete %>
+        <%= link_to "Deletar", tag_path(@tag), method: :delete, data: { confirm: "Tem certeza?" }, class: "px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition font-medium" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="bg-white shadow rounded-lg p-6 mb-8">
+    <div class="grid grid-cols-2 gap-6 mb-6">
+      <div>
+        <p class="text-sm text-gray-500 mb-1">Cor</p>
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded border border-gray-300" style="background-color: <%= @tag.color %>"></div>
+          <code class="text-sm text-gray-900"><%= @tag.color %></code>
+        </div>
+      </div>
+      <div>
+        <p class="text-sm text-gray-500 mb-1">Criada em</p>
+        <p class="text-sm text-gray-900"><%= l(@tag.created_at, format: :long) %></p>
+      </div>
+    </div>
+
+    <% if @tag.description.present? %>
+      <div>
+        <p class="text-sm text-gray-500 mb-2">Descrição</p>
+        <p class="text-sm text-gray-900"><%= @tag.description %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="bg-white shadow rounded-lg p-6">
+    <h2 class="text-xl font-bold text-gray-900 mb-4">Transações com esta tag</h2>
+
+    <% if @tag.transactions.any? %>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead class="bg-gray-50 border-b border-gray-200">
+            <tr>
+              <th class="px-4 py-2 text-left text-xs font-medium text-gray-700">Data</th>
+              <th class="px-4 py-2 text-left text-xs font-medium text-gray-700">Descrição</th>
+              <th class="px-4 py-2 text-left text-xs font-medium text-gray-700">Categoria</th>
+              <th class="px-4 py-2 text-right text-xs font-medium text-gray-700">Valor</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <% @tag.transactions.each do |transaction| %>
+              <tr class="hover:bg-gray-50">
+                <td class="px-4 py-2 text-gray-900"><%= l(transaction.date, format: :short) %></td>
+                <td class="px-4 py-2 text-gray-900"><%= transaction.description %></td>
+                <td class="px-4 py-2">
+                  <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium text-white" style="background-color: <%= transaction.category.color %>">
+                    <%= transaction.category.name %>
+                  </span>
+                </td>
+                <td class="px-4 py-2 text-right">
+                  <span class="<%= transaction.category.expense? ? 'text-red-600' : 'text-green-600' %>">
+                    <%= number_to_currency(transaction.amount, locale: :pt_BR) %>
+                  </span>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% else %>
+      <p class="text-gray-600 text-center py-8">Nenhuma transação com esta tag ainda.</p>
+    <% end %>
+  </div>
+
+  <div class="mt-8">
+    <%= link_to "← Voltar para Tags", tags_path, class: "text-red-900 hover:underline" %>
+  </div>
+</div>

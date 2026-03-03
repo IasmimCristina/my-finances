@@ -1,0 +1,47 @@
+<%= form_for(@tag, local: true) do |f| %>
+  <% if @tag.errors.any? %>
+    <div class="bg-red-50 border-l-4 border-red-600 p-4 rounded mb-6 text-sm text-red-800">
+      <p class="font-medium mb-2"><%= pluralize(@tag.errors.count, "erro") %> encontrado:</p>
+      <ul class="list-disc list-inside">
+        <% @tag.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="space-y-6">
+    <!-- Nome -->
+    <div>
+      <%= f.label :name, "Nome da Tag", class: "block text-sm font-medium text-gray-900 mb-2" %>
+      <%= f.text_field :name,
+          class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 focus:border-transparent",
+          placeholder: "ex: essencial" %>
+      <p class="text-xs text-gray-500 mt-1">Mínimo 2, máximo 50 caracteres</p>
+    </div>
+
+    <!-- Descrição -->
+    <div>
+      <%= f.label :description, "Descrição", class: "block text-sm font-medium text-gray-900 mb-2" %>
+      <%= f.text_area :description,
+          rows: 3,
+          class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-900 focus:border-transparent",
+          placeholder: "ex: Gastos essenciais do mês" %>
+    </div>
+
+    <!-- Cor -->
+    <div>
+      <%= f.label :color, "Cor", class: "block text-sm font-medium text-gray-900 mb-2" %>
+      <%= f.color_field :color,
+          class: "w-full h-10 border border-gray-300 rounded-lg cursor-pointer" %>
+      <p class="text-xs text-gray-500 mt-1">Clique para escolher</p>
+    </div>
+
+    <!-- Botões -->
+    <div class="flex gap-4 pt-4">
+      <%= f.submit @tag.persisted? ? "Atualizar" : "Criar",
+          class: "px-6 py-2 bg-red-900 text-white rounded-lg hover:bg-red-800 transition font-medium" %>
+      <%= link_to "Cancelar", tags_path, class: "px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition" %>
+    </div>
+  </div>
+<% end %>
