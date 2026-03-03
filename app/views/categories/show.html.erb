@@ -2,10 +2,10 @@
   <div class="flex items-center justify-between mb-8">
     <h1 class="text-3xl font-bold text-gray-900"><%= @category.name %></h1>
     <div class="flex gap-2">
-      <% if policy(@category).update? %>
+      <% if @can_edit %>
         <%= link_to "Editar", edit_category_path(@category), class: "px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition" %>
       <% end %>
-      <% if policy(@category).destroy? %>
+      <% if @can_delete %>
         <%= link_to "Deletar", category_path(@category), method: :delete, data: { confirm: "Tem certeza?" }, class: "px-4 py-2 bg-red-100 text-red-900 rounded-lg hover:bg-red-200 transition border border-red-300" %>
       <% end %>
     </div>
