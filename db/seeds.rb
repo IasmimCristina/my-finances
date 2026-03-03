@@ -54,6 +54,24 @@ income_categories.each do |attrs|
 end
 puts "#{income_categories.length} categorias de receita criadas"
 
+
+# Tags:
+tags = [
+  { name: "essencial", color: "#ef4444", description: "Gastos essenciais do mês" },
+  { name: "semanal", color: "#3b82f6", description: "Gastos semanais" },
+  { name: "emergência", color: "#dc2626", description: "Gastos de emergência" },
+  { name: "importante", color: "#f97316", description: "Gastos importantes" },
+  { name: "planejado", color: "#16a34a", description: "Gastos planejados" },
+  { name: "improviso", color: "#a855f7", description: "Gastos não planejados" }
+]
+
+tags.each do |attrs|
+  Tag.find_or_create_by!(name: attrs[:name]) do |tag|
+    tag.assign_attributes(attrs)
+  end
+end
+puts "✓ #{tags.length} tags criadas"
+
 puts "\n✅ Seeds completadas!"
 puts "Acesse com: admin@myfinances.local / Admin123!"
 puts "            member@myfinances.local / Member123!"

@@ -2,7 +2,7 @@ class TagsController < ApplicationController
   before_action :set_tag, only: %i[show edit update destroy]
   before_action :authorize_tag!, only: %i[show edit update destroy]
   # Center policy use here:
-  before_action :set_tag_permissions, only: %i[index show]
+  before_action :set_tag_permissions, only: %i[show]
 
   def index
     authorize Tag
@@ -11,8 +11,6 @@ class TagsController < ApplicationController
   end
 
   def show
-    @can_edit = policy(@tag).update?
-    @can_delete = policy(@tag).destroy?
   end
 
   def new
